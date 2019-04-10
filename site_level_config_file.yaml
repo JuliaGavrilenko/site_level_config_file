@@ -43,11 +43,17 @@ lightweight_components:
         container_count: 1
     config:
         enable_init_daemon: false
+        spark_driver_memory: "1g"
+        spark_executor_memory: "1g"
+        spark_yarn_am_memory: "512m"
+        spark_history_fs_log_directory: "hdfs://node-master:9000/spark-logs"
+        spark_history_fs_update_interval: "30s"
 #    supplemental_config:
 #        "spark-defaults.conf":
 #          - "spark.memory.fraction 0.75"
 #          - "spark.executor.memory 1g"
 #          - "spark.driver.cores 1"
+
 
   - name: spark-hadoop-worker
     type: spark_hadoop_worker
