@@ -46,7 +46,7 @@ lightweight_components:
         spark_driver_memory: "1g"
         spark_executor_memory: "1g"
         spark_yarn_am_memory: "512m"
-        spark_history_fs_log_directory: "hdfs://node-master:9000/spark-logs"
+        spark_history_fs_log_directory: "hdfs://spark-master.cern.ch:9000/spark-logs"
         spark_history_fs_update_interval: "30s"
 #    supplemental_config:
 #        "spark-defaults.conf":
