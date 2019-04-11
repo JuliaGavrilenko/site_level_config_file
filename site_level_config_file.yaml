@@ -57,7 +57,7 @@ lightweight_components:
 
   - name: spark-hadoop-worker
     type: spark_hadoop_worker
-#    repository_url: "https://github.com/JuliaGavrilenko/spark_worker"
+#    repository_url: "https://github.com/maany/simple_spark_cluster_worker"
     repository_revision: "master"
     execution_id: 1
     deploy:
