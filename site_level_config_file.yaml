@@ -23,8 +23,8 @@ site_infrastructure:
 
 
 lightweight_components:
-  - type: spark_hadoop_master
-    name: spark-hadoop-master
+  - name: spark-hadoop-master
+    type: spark_hadoop_master
     repository_url: "https://github.com/maany/simple_spark_cluster_master"
     repository_revision: "master"
     execution_id: 1
