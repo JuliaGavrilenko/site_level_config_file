@@ -41,7 +41,7 @@ lightweight_components:
     type: spark_hadoop_master
     repository_url: "https://github.com/maany/simple_spark_cluster_master"
     repository_revision: "master"
-    execution_id: 5
+    execution_id: 1
     deploy:
       - node: *spark_hadoop_master_fqdn
         container_count: 1
@@ -61,68 +61,12 @@ lightweight_components:
     deploy:
       - node: *spark_hadoop_worker_fqdn
         container_count: 1
-    config:
-        enable_init_daemon: false
-        spark_master: *spark_hadoop_master_fqdn
-        spark_driver_memory: "1g"
-        spark_executor_memory: "1g"
-        spark_yarn_am_memory: "512m"
-        spark_history_fs_log_directory: "hdfs://spark-master.cern.ch:9000/spark-logs"
-
-  - name: spark-hadoop-worker
-    type: spark_hadoop_worker
-    repository_url: "https://github.com/maany/simple_spark_cluster_worker"
-    repository_revision: "master"
-    execution_id: 1
-    deploy:
       - node: *spark_hadoop_add_worker_1_fqdn
         container_count: 1
-    config:
-        enable_init_daemon: false
-        spark_master: *spark_hadoop_master_fqdn
-        spark_driver_memory: "1g"
-        spark_executor_memory: "1g"
-        spark_yarn_am_memory: "512m"
-        spark_history_fs_log_directory: "hdfs://spark-master.cern.ch:9000/spark-logs"
-
-  - name: spark-hadoop-worker
-    type: spark_hadoop_worker
-    repository_url: "https://github.com/maany/simple_spark_cluster_worker"
-    repository_revision: "master"
-    execution_id: 2
-    deploy:
       - node: *spark_hadoop_add_worker_2_fqdn
         container_count: 1
-    config:
-        enable_init_daemon: false
-        spark_master: *spark_hadoop_master_fqdn
-        spark_driver_memory: "1g"
-        spark_executor_memory: "1g"
-        spark_yarn_am_memory: "512m"
-        spark_history_fs_log_directory: "hdfs://spark-master.cern.ch:9000/spark-logs"
-
-  - name: spark-hadoop-worker
-    type: spark_hadoop_worker
-    repository_url: "https://github.com/maany/simple_spark_cluster_worker"
-    repository_revision: "master"
-    execution_id: 3
-    deploy:
       - node: *spark_hadoop_add_worker_3_fqdn
         container_count: 1
-    config:
-        enable_init_daemon: false
-        spark_master: *spark_hadoop_master_fqdn
-        spark_driver_memory: "1g"
-        spark_executor_memory: "1g"
-        spark_yarn_am_memory: "512m"
-        spark_history_fs_log_directory: "hdfs://spark-master.cern.ch:9000/spark-logs"
-
-  - name: spark-hadoop-worker
-    type: spark_hadoop_worker
-    repository_url: "https://github.com/maany/simple_spark_cluster_worker"
-    repository_revision: "master"
-    execution_id: 4
-    deploy:
       - node: *spark_hadoop_add_worker_4_fqdn
         container_count: 1
     config:
@@ -132,3 +76,4 @@ lightweight_components:
         spark_executor_memory: "1g"
         spark_yarn_am_memory: "512m"
         spark_history_fs_log_directory: "hdfs://spark-master.cern.ch:9000/spark-logs"
+
