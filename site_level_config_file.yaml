@@ -27,7 +27,7 @@ lightweight_components:
     name: spark-hadoop-master
     repository_url: "https://github.com/maany/simple_spark_cluster_master"
     repository_revision: "master"
-    execution_id: 0
+    execution_id: 1
     deploy:
       - node: *spark_hadoop_master_fqdn
         container_count: 1
@@ -45,7 +45,7 @@ lightweight_components:
     type: spark_hadoop_worker
     repository_url: "https://github.com/maany/simple_spark_cluster_worker"
     repository_revision: "master"
-    execution_id: 1
+    execution_id: 0
     deploy:
       - node: *spark_hadoop_worker_fqdn
         container_count: 1
