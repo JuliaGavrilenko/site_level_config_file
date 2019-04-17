@@ -1,14 +1,14 @@
 global_variables:
   - &spark_hadoop_master_ip_address 188.184.95.231
   - &spark_hadoop_master_fqdn spark-master.cern.ch
-  - &spark_hadoop_worker_ip_address 188.184.104.92
-  - &spark_hadoop_worker_fqdn spark-worker.cern.ch
-  - &spark_hadoop_add_worker_1_ip_address 188.184.31.131
-  - &spark_hadoop_add_worker_1_fqdn spark-add-worker-1.cern.ch
-  - &spark_hadoop_add_worker_2_ip_address 188.184.30.108
-  - &spark_hadoop_add_worker_2_fqdn spark-add-worker-2.cern.ch
-  - &spark_hadoop_add_worker_3_ip_address 188.184.28.84
-  - &spark_hadoop_add_worker_3_fqdn spark-add-worker-3.cern.ch
+#  - &spark_hadoop_worker_ip_address 188.184.104.92
+#  - &spark_hadoop_worker_fqdn spark-worker.cern.ch
+#  - &spark_hadoop_add_worker_1_ip_address 188.184.31.131
+#  - &spark_hadoop_add_worker_1_fqdn spark-add-worker-1.cern.ch
+#  - &spark_hadoop_add_worker_2_ip_address 188.184.30.108
+#  - &spark_hadoop_add_worker_2_fqdn spark-add-worker-2.cern.ch
+#  - &spark_hadoop_add_worker_3_ip_address 188.184.28.84
+#  - &spark_hadoop_add_worker_3_fqdn spark-add-worker-3.cern.ch
   - &spark_hadoop_add_worker_4_ip_address 188.185.82.126
   - &spark_hadoop_add_worker_4_fqdn spark-submit.cern.ch
 
@@ -25,14 +25,14 @@ preferred_tech_stack:
 site_infrastructure:
   - fqdn: *spark_hadoop_master_fqdn
     ip_address: *spark_hadoop_master_ip_address
-  - fqdn: *spark_hadoop_worker_fqdn
-    ip_address: *spark_hadoop_worker_ip_address
-  - fqdn: *spark_hadoop_add_worker_1_fqdn
-    ip_address: *spark_hadoop_add_worker_1_ip_address
-  - fqdn: *spark_hadoop_add_worker_2_fqdn
-    ip_address: *spark_hadoop_add_worker_2_ip_address
-  - fqdn: *spark_hadoop_add_worker_3_fqdn
-    ip_address: *spark_hadoop_add_worker_3_ip_address
+#  - fqdn: *spark_hadoop_worker_fqdn
+#    ip_address: *spark_hadoop_worker_ip_address
+#  - fqdn: *spark_hadoop_add_worker_1_fqdn
+#    ip_address: *spark_hadoop_add_worker_1_ip_address
+#  - fqdn: *spark_hadoop_add_worker_2_fqdn
+#    ip_address: *spark_hadoop_add_worker_2_ip_address
+#  - fqdn: *spark_hadoop_add_worker_3_fqdn
+#    ip_address: *spark_hadoop_add_worker_3_ip_address
   - fqdn: *spark_hadoop_add_worker_4_fqdn
     ip_address: *spark_hadoop_add_worker_4_ip_address
 
@@ -59,21 +59,21 @@ lightweight_components:
     repository_revision: "master"
     execution_id: 0
     deploy:
-      - node: *spark_hadoop_worker_fqdn
-        container_count: 1
-      - node: *spark_hadoop_add_worker_1_fqdn
-        container_count: 1
-      - node: *spark_hadoop_add_worker_2_fqdn
-        container_count: 1
-      - node: *spark_hadoop_add_worker_3_fqdn
-        container_count: 1
+#      - node: *spark_hadoop_worker_fqdn
+#        container_count: 1
+#      - node: *spark_hadoop_add_worker_1_fqdn
+#        container_count: 1
+#      - node: *spark_hadoop_add_worker_2_fqdn
+#        container_count: 1
+#      - node: *spark_hadoop_add_worker_3_fqdn
+#        container_count: 1
       - node: *spark_hadoop_add_worker_4_fqdn
         container_count: 1
     config:
-        enable_init_daemon: false
-        spark_master: *spark_hadoop_master_fqdn
-        spark_driver_memory: "1g"
-        spark_executor_memory: "1g"
-        spark_yarn_am_memory: "512m"
-        spark_history_fs_log_directory: "hdfs://spark-master.cern.ch:9000/spark-logs"
+#        enable_init_daemon: false
+#        spark_master: *spark_hadoop_master_fqdn
+#        spark_driver_memory: "1g"
+#        spark_executor_memory: "1g"
+#        spark_yarn_am_memory: "512m"
+#        spark_history_fs_log_directory: "hdfs://spark-master.cern.ch:9000/spark-logs"
 
