@@ -1,16 +1,16 @@
 global_variables:
-  - &spark_hadoop_master_ip_address 188.184.95.231
-  - &spark_hadoop_master_fqdn spark-master.cern.ch
-#  - &spark_hadoop_worker_ip_address 188.184.104.92
-#  - &spark_hadoop_worker_fqdn spark-worker.cern.ch
-#  - &spark_hadoop_add_worker_1_ip_address 188.184.31.131
-#  - &spark_hadoop_add_worker_1_fqdn spark-add-worker-1.cern.ch
-#  - &spark_hadoop_add_worker_2_ip_address 188.184.30.108
-#  - &spark_hadoop_add_worker_2_fqdn spark-add-worker-2.cern.ch
-#  - &spark_hadoop_add_worker_3_ip_address 188.184.28.84
-#  - &spark_hadoop_add_worker_3_fqdn spark-add-worker-3.cern.ch
-  - &spark_hadoop_add_worker_4_ip_address 188.185.82.126
-  - &spark_hadoop_add_worker_4_fqdn spark-submit.cern.ch
+  - &spark_hadoop_master_ip_address 188.184.91.176
+  - &spark_hadoop_master_fqdn spark-hadoop-master-0.cern.ch
+#  - &spark_hadoop_worker_ip_address 188.184.88.69
+#  - &spark_hadoop_worker_fqdn spark-hadoop-worker-0.cern.ch
+#  - &spark_hadoop_add_worker_1_ip_address 188.184.83.48
+#  - &spark_hadoop_add_worker_1_fqdn spark-hadoop-add-1-worker.cern.ch
+#  - &spark_hadoop_add_worker_2_ip_address 188.185.76.205
+#  - &spark_hadoop_add_worker_2_fqdn spark-hadoop-add-2-worker.cern.ch
+#  - &spark_hadoop_add_worker_3_ip_address 188.184.86.181
+#  - &spark_hadoop_add_worker_3_fqdn spark-hadoop-add-3-worker.cern.ch
+  - &spark_hadoop_add_worker_4_ip_address 188.185.71.78
+  - &spark_hadoop_add_worker_4_fqdn spark-hadoop-submit.cern.ch
 
 spark_worker_runtime_variables:
   - &spark_hadoop_worker_runtime_var_spark_hadoop_master_fqdn
@@ -39,23 +39,17 @@ site_infrastructure:
 lightweight_components:
   - name: spark-hadoop-master
     type: spark_hadoop_master
-    repository_url: "https://github.com/JuliaGavrilenko/simple_spark_cluster_master"
+    repository_url: "https://github.com/maany/simple_spark_cluster_master"
     repository_revision: "master"
     execution_id: 1
     deploy:
       - node: *spark_hadoop_master_fqdn
         container_count: 1
     config:
-        enable_init_daemon: false
-        spark_driver_memory: "1g"
-        spark_executor_memory: "1g"
-        spark_yarn_am_memory: "512m"
-        spark_history_fs_log_directory: "hdfs://spark-master.cern.ch:9000/spark-logs"
-        spark_history_fs_update_interval: "30s"
 
   - name: spark-hadoop-worker
     type: spark_hadoop_worker
-    repository_url: "https://github.com/JuliaGavrilenko/simple_spark_cluster_worker"
+    repository_url: "https://github.com/maany/simple_spark_cluster_worker"
     repository_revision: "master"
     execution_id: 0
     deploy:
